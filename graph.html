@@ -1,0 +1,135 @@
+<html>
+<head>
+<script type="text/javascript">
+var curx = 0;
+var cury = 0;
+var curxdir = 1;
+var curydir = 1;
+var imageData;
+var MAXX=window.innerWidth;
+var MAXY=window.innerHeight;
+var imageBitmapA;
+var imageBitmapA0;
+// canvas element in DOM
+var canvas;
+var ctx;
+// background canvas
+var canvas2;
+var ctx2;
+
+function init() {
+    document.getElementById("canvas").width = MAXX;
+    document.getElementById("canvas").height = MAXY;
+    canvas = document.getElementById('canvas');
+    ctx = canvas.getContext('2d');
+
+    // background canvas
+    canvas2 = document.createElement('canvas');
+    canvas2.width = MAXX;
+    canvas2.height = MAXY;
+    ctx2 = canvas2.getContext('2d');
+}
+
+function setpixel( x, y, r, g, b, alpha ) {
+
+    var i = (y*(MAXX*4)) + (x*4);
+    imageData[i] = r;
+    imageData[i+1] = g;
+    imageData[i+2] = b;
+    imageData[i+3] = alpha;
+}
+/*
+function loadBitmapA() {
+	var offScreenCanvas= document.createElement('canvas');
+    offScreenCanvas.width= '100';
+    offScreenCanvas.height= '50';
+    var context= offScreenCanvas.getContext("2d");
+    context.font = "50px Arial";
+    context.fillStyle = "blue";
+    context.fillText( "FFD", 0, 50) ;
+    //context.fillRect(0,0,200,200);
+    //context.fillStyle = "blue";
+    imageBitmapA = offScreenCanvas;
+}
+*/
+
+function loadBitmapA0() {
+    ctx2.clearRect(0,0, MAXX, MAXY);
+    // And here we attache it back (not needed cf. update) 
+    //image = ctx2.getImageData(0, 0, MAXX, MAXY);
+	image = ctx2.createImageData(MAXX, MAXY);
+    imageData = image.data;
+
+    for( var x=0; x < 200; x ++ )
+    {
+		for( var y=0; y < 200; y ++ )
+		{
+				setpixel( x, y, 0, 255, 0,  255 );
+		} 
+	}
+
+	ctx2.putImageData(image, 0, 0);
+    var imageDataObj =  ctx2.getImageData( 0, 0, MAXX, MAXY );
+    var imageBitmapPromise = createImageBitmap(imageDataObj, 0, 0, MAXX, MAXY );
+
+    imageBitmapPromise.then(function(bitmapData) {
+        console.log( "Promise completed and =" + bitmapData );
+        imageBitmapA0 = bitmapData;
+    });
+}
+
+function loadBitmapA() {
+    ctx2.clearRect(0,0, MAXX, MAXY);
+    // And here we attache it back (not needed cf. update) 
+	//ctx2.fillStyle = "orange";
+    //ctx2.fillRect(0,0, 100,50 );
+    ctx2.font = "50px Arial";
+    ctx2.fillStyle = "rgba(255,0,0, .5)";
+    ctx2.fillText( "FFD", 0, 50) ;
+    var imageDataObj =  ctx2.getImageData( 0, 0, 100, 50 );
+    var imageBitmapPromise = createImageBitmap(imageDataObj, 0, 0, 100, 50 );
+
+    imageBitmapPromise.then(function(bitmapData) {
+        console.log( "Promise completed and =" + bitmapData );
+        imageBitmapA = bitmapData;
+    });
+}
+
+
+function displayFrame()
+{
+    // here we detach the pixels array from DOM 
+
+    ctx.clearRect(0,0, MAXX, MAXY);
+    ctx.drawImage(imageBitmapA0, 0, 0 );
+    //ctx.drawImage(imageBitmapA, counter % MAXX, counter % MAXY );
+    ctx.drawImage(imageBitmapA, curx, cury );
+
+    
+    curx += curxdir;
+    cury += curydir;
+
+    if( curx >= MAXX-100 || curx < 0) {
+        curxdir *= -1;
+    }
+
+    if( cury > MAXY-50 || cury < 0) {
+        curydir *= -1;
+    }
+    window.requestAnimationFrame(displayFrame);
+}
+
+function start() 
+{
+  init();
+  loadBitmapA0();
+  loadBitmapA();
+  window.requestAnimationFrame(displayFrame);
+}
+
+</script> 
+</head>
+<body onload="start()">
+<canvas id="canvas"/>
+</body>
+</html>
