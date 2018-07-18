@@ -75,6 +75,7 @@ function loadBitmapA0() {
     imageBitmapPromise.then(function(bitmapData) {
         console.log( "Promise completed and =" + bitmapData );
         imageBitmapA0 = bitmapData;
+        loadBitmapA();
     });
 }
 
@@ -92,6 +93,7 @@ function loadBitmapA() {
     imageBitmapPromise.then(function(bitmapData) {
         console.log( "Promise completed and =" + bitmapData );
         imageBitmapA = bitmapData;
+        window.requestAnimationFrame(displayFrame);
     });
 }
 
@@ -123,8 +125,6 @@ function start()
 {
   init();
   loadBitmapA0();
-  loadBitmapA();
-  window.requestAnimationFrame(displayFrame);
 }
 
 </script> 
