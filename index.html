@@ -1,10 +1,6 @@
 <html>
 <head>
 <script type="text/javascript">
-var curx = 0;
-var cury = 0;
-var curxdir = 1;
-var curydir = 1;
 var imageData;
 var MAXX=window.innerWidth;
 var MAXY=window.innerHeight;
@@ -17,6 +13,8 @@ var ctx;
 var canvas2;
 var ctx2;
 
+var objects = []
+var NUM_OBJS= 100;
 function init() {
     document.getElementById("canvas").width = MAXX;
     document.getElementById("canvas").height = MAXY;
@@ -28,6 +26,34 @@ function init() {
     canvas2.width = MAXX;
     canvas2.height = MAXY;
     ctx2 = canvas2.getContext('2d');
+}
+
+function rnd(maxVal) {
+    return Math.floor(Math.random() * maxVal);
+}
+
+function initObjects() {
+    for( i = 0; i < NUM_OBJS; i++ ) {
+        objects[i] = createSingleObject();
+    }
+}
+
+
+function createSingleObject() {
+    var obj = {};
+    obj.text ="Obj#" + i
+    obj.width = 150 +rnd( 100 );
+    obj.height = 50 + rnd( 10 );
+    obj.curx = rnd(MAXX);
+    obj.cury = rnd(MAXY);
+    obj.curxdir = 1;
+    obj.curydir = 1;
+    obj.bitmapData = null;
+    obj.velocity = Math.random() * 4;
+
+    loadBitmapObject(obj);
+
+    return obj;
 }
 
 function setpixel( x, y, r, g, b, alpha ) {
@@ -60,11 +86,11 @@ function loadBitmapA0() {
 	image = ctx2.createImageData(MAXX, MAXY);
     imageData = image.data;
 
-    for( var x=0; x < 200; x ++ )
+    for( var x=0; x < MAXX; x ++ )
     {
-		for( var y=0; y < 200; y ++ )
+		for( var y=0; y < MAXY; y ++ )
 		{
-				setpixel( x, y, 0, 255, 0,  255 );
+				setpixel( x, y, 0, (x/MAXX)*255, 0,  255 );
 		} 
 	}
 
@@ -93,38 +119,60 @@ function loadBitmapA() {
     imageBitmapPromise.then(function(bitmapData) {
         console.log( "Promise completed and =" + bitmapData );
         imageBitmapA = bitmapData;
-        window.requestAnimationFrame(displayFrame);
     });
 }
 
+function loadBitmapObject(obj) {
+    ctx2.clearRect(0,0, MAXX, MAXY);
+    // And here we attache it back (not needed cf. update) 
+	//ctx2.fillStyle = "orange";
+    //ctx2.fillRect(0,0, 100,50 );
+    ctx2.font = "50px Arial";
+    ctx2.fillStyle = "rgba(" + rnd(255) + "," + rnd(255) + "," + rnd(255) + ", .5)";
+    ctx2.fillText( obj.text, 0, 50) ;
+    var imageDataObj =  ctx2.getImageData( 0, 0, obj.width, obj.height );
+    var imageBitmapPromise = createImageBitmap(imageDataObj, 0, 0, obj.width, obj.height );
+
+    imageBitmapPromise.then(function(bitmapData) {
+        console.log( "Promise completed and =" + bitmapData  + " for object=" + obj.text);
+        obj.bitmapData = bitmapData;
+    });
+}
 
 function displayFrame()
 {
     // here we detach the pixels array from DOM 
-
     ctx.clearRect(0,0, MAXX, MAXY);
     ctx.drawImage(imageBitmapA0, 0, 0 );
     //ctx.drawImage(imageBitmapA, counter % MAXX, counter % MAXY );
-    ctx.drawImage(imageBitmapA, curx, cury );
+    //ctx.drawImage(imageBitmapA, curx, cury );
 
-    
-    curx += curxdir;
-    cury += curydir;
 
-    if( curx >= MAXX-100 || curx < 0) {
-        curxdir *= -1;
+    for( i = 0; i < NUM_OBJS; i++) {
+        var obj = objects[i];
+        ctx.drawImage( obj.bitmapData, Math.floor(obj.curx), Math.floor(obj.cury) );
+        //ctx.drawImage( imageBitmapA, obj.curx, obj.cury );
+        obj.curx += obj.curxdir*obj.velocity;
+        obj.cury += obj.curydir*obj.velocity;
+        if( obj.curx >= MAXX-obj.width || obj.curx < 0) {
+            obj.curxdir *= -1;
+        }
+
+        if( obj.cury > MAXY-obj.height || obj.cury < 0) {
+            obj.curydir *= -1;
+        }
     }
 
-    if( cury > MAXY-50 || cury < 0) {
-        curydir *= -1;
-    }
     window.requestAnimationFrame(displayFrame);
 }
 
 function start() 
 {
   init();
+  initObjects();
+  loadBitmapA();
   loadBitmapA0();
+  window.requestAnimationFrame(displayFrame);
 }
 
 </script> 
