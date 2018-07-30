@@ -1,6 +1,7 @@
 <html>
 <head>
 <script type="text/javascript">
+var count = 0;
 var imageData;
 var MAXX=window.innerWidth;
 var MAXY=window.innerHeight;
@@ -15,6 +16,133 @@ var ctx2;
 
 var objects = []
 var NUM_OBJS= 100;
+
+
+var previousTimeStamp = timestamp();
+var currentTimeStamp = null;
+var timeDelta = null;
+var totalFrameDeltas = 0;
+var totalFrameCount = 0;
+var frameRate = null;
+
+function timestamp() {
+      return window.performance && window.performance.now ? window.performance.now() : new Date().getTime();
+}
+
+//	private void drawBar( Graphics2D g, int curCount ) {
+	
+//		int totalWindowHeight = getHeight();
+
+//		int segmentHeight = totalWindowHeight / (NUM_SEGMENTS*2);
+//		int halfNumSegments = NUM_SEGMENTS / 2;
+//		int curHeightinSegments = (int) (halfNumSegments + ((Math.sin( Math.toRadians(curCount)*config.getBreathingRate()) ) * halfNumSegments));
+
+//		GradientPaint redtowhite = new GradientPaint(0, totalWindowHeight-(curHeightinSegments*NUM_SEGMENTS*2), new Color( 0, 255, 0), (int) bar_width, curHeightinSegments*NUM_SEGMENTS*2, new Color(0, 0, 255));
+//	    g.setPaint(redtowhite);
+
+		//g2d.fillRect( 0, 0, 10, 10 );
+//	    int curY = totalWindowHeight - (segmentHeight);
+//	    for( int i = 0; i < curHeightinSegments;i++ ) {
+//	    	g.fillRect(0, curY, (int)bar_width, segmentHeight);
+//	    	curY -= 2*segmentHeight;
+//	    }
+//	}
+
+
+function drawFrameRate(context, counter ) {
+    context.fillStyle = "rgba(0,0,255,1)";
+    context.fillRect(10,10,200,200);
+    context.font = "10px Arial";
+    context.fillStyle = "rgba(255,255,255,1)";
+    context.fillText( "Counter: " + counter,20, 20) ;
+    context.fillText( "Frame/s: " + frameRate,20, 30) ;
+}
+
+function drawBar(context, curDegree ) {
+	var DEG_TO_RAD = Math.PI / 180;
+	curHeight = Math.sin(curDegree * DEG_TO_RAD*.3) * (MAXY/2); 
+    curColour = Math.abs(Math.sin(curDegree * DEG_TO_RAD*.5) * 255); 
+    console.log( "curheight=" + curHeight)
+    if( curHeight > 0 ) {
+        context.fillStyle = "rgba(" + curColour + "," + 0 + "," + 0 + ", 1)";
+    } else {
+        context.fillStyle = "rgba(" + 0 + "," + curColour + "," + 0 + ", 1)";
+    }
+    context.fillRect(0,Math.floor((MAXY/2)),MAXX,Math.floor(curHeight));
+}
+
+function drawSineWave(curDegree ) {
+	var DEG_TO_RAD = Math.PI / 180;
+    var AMP_MIN=.5
+    var AMP_LENGTH=300;
+
+	image = ctx.createImageData(MAXX, MAXY);
+    imageData = image.data;
+/*
+    for( var x=0; x < MAXX; x ++ )
+    {
+		for( var y=0; y < MAXY; y ++ )
+		{
+				setpixel( x, y, 0, (x/MAXX)*255, 0,  255 );
+		} 
+	}
+    */
+    var amplitude = (curDegree % (AMP_LENGTH*2));
+    if( amplitude > AMP_LENGTH ) {
+        amplitude = (AMP_LENGTH*2)-amplitude;
+    } 
+    wavelength = AMP_MIN + (amplitude / AMP_LENGTH);
+    //amplitude = (amplitude / AMP_LENGTH)*(MAXY/2);
+    amplitude = (amplitude / AMP_LENGTH)*30;
+    var colorVal = (amplitude / AMP_LENGTH)*255;
+
+    console.log( "curdegree=" + curDegree + ",amp=" + amplitude );
+    for( var i = 0; i < MAXX; i ++ ) {
+
+ 	    var curHeight = (MAXY/2) + Math.sin((curDegree + i) * DEG_TO_RAD*.9) * amplitude; 
+
+        for( var y = 0; y < curHeight; y ++ ) {
+            setpixel(i, y, colorVal,0,0,255);
+        }
+        //ctx.fillStyle = "blue";
+        //ctx.fillRect(0,0,200,curHeight);
+    }
+
+	ctx.putImageData(image, 0, 0);
+}
+
+function drawSineFlag(curDegree ) {
+   	var DEG_TO_RAD = Math.PI / 180;
+    var AMP_MIN=.5
+    var AMP_LENGTH=90;
+
+	image = ctx.getImageData(0,0,MAXX, MAXY);
+    imageData = image.data;
+
+    var FLAG_WIDTH=400;
+    var FLAG_HEIGHT=400;
+
+    var XSTART=Math.floor((MAXX/2) - (FLAG_WIDTH/2));
+    var YSTART=Math.floor((MAXY/2) - (FLAG_HEIGHT/2));
+
+
+    var amplitude = (curDegree % (AMP_LENGTH*2));
+    if( amplitude > AMP_LENGTH ) {
+        amplitude = (AMP_LENGTH*2)-amplitude;
+    } 
+
+    amplitude = (amplitude / AMP_LENGTH)*30;
+
+    for( var i = 0; i < FLAG_WIDTH; i++ ) {
+        var yOff = 20+Math.floor(Math.sin((curDegree + i) * DEG_TO_RAD*.9)*10); 
+        for( var j = 0; j < FLAG_HEIGHT; j++ ) {
+            var xOff = 20+Math.floor(Math.sin((curDegree + j) * DEG_TO_RAD*.9)*10); 
+            setpixel( Math.floor(XSTART+i+xOff), Math.floor(YSTART+j+yOff), (i/FLAG_WIDTH)*255,(j/FLAG_HEIGHT)*255,0,255);
+        }
+    }
+	ctx.putImageData(image, 0, 0);
+}
+
 function init() {
     document.getElementById("canvas").width = MAXX;
     document.getElementById("canvas").height = MAXY;
@@ -57,6 +185,14 @@ function createSingleObject() {
 }
 
 function setpixel( x, y, r, g, b, alpha ) {
+
+    if( x > MAXX ) {
+        return;
+    }
+
+    if( y > MAXY) {
+        return;
+    }
 
     var i = (y*(MAXX*4)) + (x*4);
     imageData[i] = r;
@@ -101,7 +237,6 @@ function loadBitmapA0() {
     imageBitmapPromise.then(function(bitmapData) {
         console.log( "Promise completed and =" + bitmapData );
         imageBitmapA0 = bitmapData;
-        loadBitmapA();
     });
 }
 
@@ -141,13 +276,29 @@ function loadBitmapObject(obj) {
 
 function displayFrame()
 {
+    currentTimeStamp = timestamp();
+    timeDelta = (currentTimeStamp - previousTimeStamp);
+
+    totalFrameDeltas += timeDelta;
+    totalFrameCount += 1;
+
+    if( totalFrameDeltas > 1000 ) {
+        frameRate = (totalFrameCount/ totalFrameDeltas) * 1000;
+        totalFrameDeltas = 0;
+        totalFrameCount = 0;
+    }
     // here we detach the pixels array from DOM 
-    ctx.clearRect(0,0, MAXX, MAXY);
-    ctx.drawImage(imageBitmapA0, 0, 0 );
+    //ctx.clearRect(0,0, MAXX, MAXY);
+    //ctx.drawImage(imageBitmapA0, 0, 0 );
     //ctx.drawImage(imageBitmapA, counter % MAXX, counter % MAXY );
     //ctx.drawImage(imageBitmapA, curx, cury );
 
+//	drawBar( ctx, count );
+	drawSineWave( count );
+	drawSineFlag( count );
+    drawFrameRate( ctx, count);
 
+/*
     for( i = 0; i < NUM_OBJS; i++) {
         var obj = objects[i];
         ctx.drawImage( obj.bitmapData, Math.floor(obj.curx), Math.floor(obj.cury) );
@@ -162,16 +313,25 @@ function displayFrame()
             obj.curydir *= -1;
         }
     }
+*/
 
+    previousTimeStamp = currentTimeStamp;
     window.requestAnimationFrame(displayFrame);
+	count++;
 }
 
-function start() 
+function sleep(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function start() 
 {
   init();
   initObjects();
   loadBitmapA();
   loadBitmapA0();
+  await sleep(200);
+  
   window.requestAnimationFrame(displayFrame);
 }
 
