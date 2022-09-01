@@ -1,31 +1,111 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta name=”viewport” content=”width=device-width, initial-scale=1.0″>
+
+
 <title>Swim Cues</title>
 <script>
-  let farm_images = [
-    'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftownsquare.media%2Fsite%2F554%2Ffiles%2F2017%2F09%2F9-27-FARM.jpg%3Fw%3D1200%26h%3D0%26zc%3D1%26s%3D0%26a%3Dt%26q%3D89&f=1&nofb=1',
-    'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.DD2Yxdqd7dDyYWSEbsCpRwHaEw%26pid%3DApi&f=1',
-    'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.OoY90XyFb-92rGh__z0KZAHaE8%26pid%3DApi&f=1',
-    'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.bKdjjR6XyLJjMOODbw3PWgHaFm%26pid%3DApi&f=1',
-    'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.OZVW2rDfypiv44DSt3YQJQHaE8%26pid%3DApi&f=1',
-    'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.ldyIHUUyIOcrOnn-zb77WAHaEK%26pid%3DApi&f=1',
-    'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.4zlZGZ2CoY2uDFEnxmXy7AHaE7%26pid%3DApi&f=1',
-    'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.g70WYcJx-x12Hygb9qtEZAHaEK%26pid%3DApi&f=1',
-    'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.zBZTKWqRtwI0GUsejWRMSgHaD4%26pid%3DApi&f=1',
-    'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.yJ6v4kmjdJMPaqW1g7c3WQHaEK%26pid%3DApi&f=1',
-    'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.rtlc8jcyCSPe5QVDrVJtxQHaE3%26pid%3DApi&f=1',
-    'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.8AGOjLmRy5FdV12fcPUYWgHaE7%26pid%3DApi&f=1',
-    'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.YTPYti3QQ9dksilg8ZRUCwHaE7%26pid%3DApi&f=1',
-    'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.FSSdcV9Hy7fIEoZl8LnJ0QHaE8%26pid%3DApi&f=1',
-    'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.cnoz03Cw_TRzse_nkvAU-gHaFj%26pid%3DApi&f=1',
-    'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.8WEUH0X12UCCpUcmRn0jYAHaJ4%26pid%3DApi&f=1'
+  let images = [
+    {
+      'place_name' : 'Farm',
+      'url' : 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.7GaDLvQilSlh1sDE4CBcUgHaEV%26pid%3DApi&f=1',
+      'images' : [
+          { 'word' : 'cows',
+            'url' :'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftownsquare.media%2Fsite%2F554%2Ffiles%2F2017%2F09%2F9-27-FARM.jpg%3Fw%3D1200%26h%3D0%26zc%3D1%26s%3D0%26a%3Dt%26q%3D89&f=1&nofb=1'
+          },
+          {
+            'word' : 'strawberries',
+            'url' : 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.OoY90XyFb-92rGh__z0KZAHaE8%26pid%3DApi&f=1'
+          },
+          {
+            'word' : 'Bull',
+            'url' : 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.bKdjjR6XyLJjMOODbw3PWgHaFm%26pid%3DApi&f=1'
+          },
+          {
+            'word' : 'Pigs',
+            'url' : 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.bKdjjR6XyLJjMOODbw3PWgHaFm%26pid%3DApi&f=1'
+          },
+          {
+            'word' : 'Barn',
+            'url' : 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.ldyIHUUyIOcrOnn-zb77WAHaEK%26pid%3DApi&f=1'
+          },
+          {
+            'word' : 'Horses',
+            'url' : 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.4zlZGZ2CoY2uDFEnxmXy7AHaE7%26pid%3DApi&f=1'
+          },
+          {
+            'word' : 'Farm house scene',
+            'url' : 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.g70WYcJx-x12Hygb9qtEZAHaEK%26pid%3DApi&f=1'
+          },
+          {
+            'word' : 'Horse riders',
+            'url' : 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.zBZTKWqRtwI0GUsejWRMSgHaD4%26pid%3DApi&f=1'
+          },
+          {
+            'word' : 'Apples',
+            'url' : 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.yJ6v4kmjdJMPaqW1g7c3WQHaEK%26pid%3DApi&f=1'
+          },
+          {
+            'word' : 'Ducks',
+            'url' : 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.rtlc8jcyCSPe5QVDrVJtxQHaE3%26pid%3DApi&f=1'
+          },
+          {
+            'word' : 'Oranges',
+            'url' : 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.8WEUH0X12UCCpUcmRn0jYAHaJ4%26pid%3DApi&f=1'
+          }
+
+      ]
+    },
+    {
+      'place_name' : 'Soccer Field',
+      'url' : 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.communityadvocate.com%2Fwp-content%2Fuploads%2F2020%2F09%2FChauncyFieldsSoccer_09-23-2020-scaled.jpg&f=1&nofb=1',
+      'images' : [
+          { 'word' : 'kick',
+            'url' :'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.DD2Yxdqd7dDyYWSEbsCpRwHaEw%26pid%3DApi&f=1'
+          },
+          {
+            'word' : 'Goal!',
+            'url' : 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.BL3Yu0PXsosThHX0YFbFfgHaFL%26pid%3DApi&f=1'
+          },
+          {
+            'word' : 'Team',
+            'url' : 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.ODDokreGs6NmhNZHIPmwngHaE7%26pid%3DApi&f=1'
+          }
+      ]
+    },
+    {
+      'place_name' : 'Play Ground',
+      'url' : 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.communityadvocate.com%2Fwp-content%2Fuploads%2F2020%2F09%2FChauncyFieldsSoccer_09-23-2020-scaled.jpg&f=1&nofb=1',
+      'images' : [
+          { 'word' : 'Slide',
+            'url' :'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fkidscreations.com%2Fproduct_images%2Fr%2F269%2Fgreen_14_scoop_slide__66933_zoom.jpg&f=1&nofb=1'
+          }
+      ]
+    },
+    {
+      'place_name' : 'The Zoo',
+      'url' : 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.r2UNQHqWyOkWRdlWivgLwQHaE8%26pid%3DApi&f=1',
+      'images' : [
+          { 'word' : 'Elephant Eating Tree',
+            'url' :'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.uqXfPfsRxFCXm0FsKXInQwHaFO%26pid%3DApi&f=1'
+          }
+      ]
+    }
   ];
   function changeImage() {
-    let index = Math.floor(Math.random() * farm_images.length);
-    let url = farm_images[index];
+    let placeIndex = Math.floor(Math.random() * images.length);
+    let placeName = images[placeIndex].place_name;
+    let imageArray= images[placeIndex].images;
+    let imageIndex = Math.floor(Math.random() * imageArray.length);
+    let url = imageArray[imageIndex].url;
+    let imageText = imageArray[imageIndex].word;
+    //document.querySelector('.imgcontainer h1').innerHTML = 'At the ' + placeName;
+    document.getElementById("placename").innerHTML = 'At the ' + placeName;
     document.getElementById("mainimg").src=url;
-    document.getElementById("txt").value = 'hullo';
+    document.getElementById("word").innerHTML = imageText;
+    //document.getElementById("txt").value = 'hullo';
+    //document.querySelector('.imgcontainer h1:nth-of-type(2)').innerHTML = 'TEST'
   }
 </script>
 <style>
@@ -37,6 +117,7 @@
         max-height:80%;
         width:100%;
         height:auto;
+        margin-top: auto;
         margin-left: auto;
         margin-right: auto;
     }
@@ -45,7 +126,7 @@
       list-style: none;
     }
 
-    li {
+    h1 {
       background: tomato;
       padding: 5px;
       width: 300px;
@@ -58,15 +139,9 @@
       background-color: linen;
       font-family: Arial
     }
-
-    h1 {
-      color: maroon;
-      margin-left: 40px;
-    }
     .imgcontainer{
       height:80%;
     }
-
     .buttoncontainer{
       height: 20%;
       display: flex;
@@ -92,11 +167,9 @@
 <body onload = changeImage()>
 <div class="topcontainer">
   <div class="imgcontainer">
-    <h1>Places</h1>
-    <ul>
-      <li>Playground</li>
-    </ul>
+    <h1 id='placename'>At The...</h1>
     <img id="mainimg" src=""/>
+    <h1 id='word'>Testtest</h1>
   </div>
   <div class="buttoncontainer">
     <button onclick="changeImage()" class="button">Previous</button>
