@@ -102,8 +102,11 @@
     let imageText = imageArray[imageIndex].word;
     //document.querySelector('.imgcontainer h1').innerHTML = 'At the ' + placeName;
     document.getElementById("placename").innerHTML = 'At the ' + placeName;
+    document.getElementById("mainimg").classList.remove('zoomin');
+    document.getElementById("mainimg").style.transform='scale(1.0)';
     document.getElementById("mainimg").src=url;
     document.getElementById("word").innerHTML = imageText;
+    document.getElementById("mainimg").classList.add('zoomin');
     //document.getElementById("txt").value = 'hullo';
     //document.querySelector('.imgcontainer h1:nth-of-type(2)').innerHTML = 'TEST'
   }
@@ -120,6 +123,11 @@
         margin-top: auto;
         margin-left: auto;
         margin-right: auto;
+        transform: scale(1.0);
+        transition: transform 4000ms ease-in-out;
+    }
+    .zoomin {
+      transform: scale(2.0) !important
     }
     ul {
       margin: 0;
