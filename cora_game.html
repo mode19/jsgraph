@@ -165,21 +165,28 @@
     }
     .htext {
       font-family: "Arial Black", Gadget, sans-serif;
-      font-size: 3vh;
+      font-size: 5vh;
+      vertical-align: middle;
     }
-    .toptext {
-        text-align: center;
-        height: 5%;
-        max-height: 5%;
+    .toptextcontainer {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      height: 10%;
+      max-height: 10%;
     }
-    .bottomtext {
-        height: 5%;
-        max-height: 5%;
+    .bottomtextcontainer {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+        height: 10%;
+        max-height: 10%;
         width: 100%;
         text-align: center;
     }
     .imgcontainer{
-      height: 70%;
+      height: 60%;
       width: 100%;
       display: flex;
       justify-content: center;
@@ -218,14 +225,14 @@
     </style>
 </head>
 <body onload = changeImage()>
-<div class="toptext">
-      <h1 class="htext" id='placename'>At The...<h1>
+<div class="toptextcontainer">
+      <span class="htext" id='placename'>At The...<span>
 </div>
 <div  class="imgcontainer">
   <img id="mainimg" src=""/>
 </div>
-<div class="bottomtext">
-    <h1 class="htext" id='word'>Testtest</h1>
+<div class="bottomtextcontainer">
+    <span class="htext" id='word'>Testtest</span>
 </div>
 <div class="buttoncontainer">
   <button onclick="changeImage()" class="button">Previous</button>
