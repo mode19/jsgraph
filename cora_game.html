@@ -71,6 +71,34 @@
           {
             'word' : 'Team',
             'url' : 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.ODDokreGs6NmhNZHIPmwngHaE7%26pid%3DApi&f=1'
+          },
+          {
+            'word' : 'Run',
+            'url' : 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.fMLY_v0fWo6JIUpnPgQGXAHaEA%26pid%3DApi&f=1&ipt=87efdae9b491e2b7e3f7948c45d07aec27a1ea5d440349de064392ccc7c6cbb1&ipo=images'
+          },
+          {
+            'word' : 'Aim',
+            'url' : 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.LrILet3Ctf3Pk1uFYlr-WAHaGG%26pid%3DApi&f=1&ipt=5ec572861dee0271cb388c791f916e05bd5c3f4e1c523a9fe793621263701fc4&ipo=images'
+          },
+          {
+            'word' : 'Hug',
+            'url' : 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.3ivp9hu4UuYKbGr5P8a8LgHaFx%26pid%3DApi&f=1&ipt=83d4f74f6c7c52152e4bd1d72886dd30d53bf9ca61221db39911e2c7a5e68fd0&ipo=images'
+          },
+          {
+            'word' : 'Team',
+            'url' : 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.fWaJlMuEsTo0W2qUb8dzTwHaCv%26pid%3DApi&f=1&ipt=f3068d7fc0925f9c952c5f4e2ddfc720ea3c51f44d982a23eb71e603a542a034&ipo=images'
+          },
+          {
+            'word' : 'Save',
+            'url' : 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.v05X0BcjMNSU-SXM34AlOQHaFk%26pid%3DApi&f=1&ipt=730aba49889640fedcaa4b498b21f2f6ef15c6e97735818bdff0f3fdeaf782ac&ipo=images'
+          },
+          {
+            'word' : 'Throw',
+            'url' : 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP._GkLEr4kXkv-qFvnB9Rc-wHaE8%26pid%3DApi&f=1&ipt=a1fecb03ad54b2b817f528684d70d62d27d39d67e4f46becddbe17ff7fdd3f72&ipo=images'
+          },
+          {
+            'word' : 'Pass',
+            'url' : 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.qtDYHtCnlYTv1-fwlIoTBgHaFc%26pid%3DApi&f=1&ipt=0729cbfa0fba32caee654cb02a87d6229595e5f0cc94d0676ef66c17ec85a8b2&ipo=images'
           }
       ]
     },
@@ -111,11 +139,11 @@
 </script>
 <style>
     #mainimg {
-        width: 100%;
         height: 100%;
+        /*
+        width: 100%;
         max-width:100%;
         max-height:100%;
-        /*
         */
         /*width:100%;*/
         /*height:auto;*/
@@ -129,50 +157,64 @@
         text-align: center;
         vertical-align: middle;
         */
-        background-color: pink;
         object-fit: cover;
     }
     ul {
       margin: 0;
       list-style: none;
     }
-    h1 {
-      background: tomato;
-      padding: 5px;
-      width: 300px;
-      margin-top: 10px;
-      color: white;
-      font-weight: bold;
-      font-size: 1em;
-    }
-    body {
-      background-color: linen;
-      font-family: Arial
+    .htext {
+      font-family: "Arial Black", Gadget, sans-serif;
+      font-size: 31px;
+      letter-spacing: 0px;
+      word-spacing: 2px;
+      font-weight: 700;
+      text-decoration: none;
+      font-style: normal;
+      font-variant: normal;
+      text-transform: none;
     }
     .toptext {
+        text-align: center;
         height: 5%;
+        max-height: 5%;
     }
     .bottomtext {
         height: 5%;
+        max-height: 5%;
+        width: 100%;
+        text-align: center;
     }
     .imgcontainer{
-      background-color: blue;
-      height:70%;
+      height: 70%;
       display: flex;
       justify-content: center;
       align-items: center;
     }
     .buttoncontainer{
       height: 20%;
+      max-height: 20%;
       display: flex;
       justify-content:space-between
     }
-    html, body {
+    * {
+       padding: 0;
+       margin: 0;
+    }
+    html {
+      margin:0px;
+      height:100%;
+    }
+    body {
       margin:0px;
       height:100%;
     }
     .button{
+        font-family: "Arial", Gadget, sans-serif;
+        font-size: 31px;
+        /*
         padding: 1em;
+        */
         text-align: center;
         height: 100%;
         width: 100%;
@@ -181,13 +223,13 @@
 </head>
 <body onload = changeImage()>
 <div class="toptext">
-      <h1 id='placename'>At The...</h1>
+      <h1 class="htext" id='placename'>At The...<h1>
 </div>
 <div  class="imgcontainer">
   <img id="mainimg" src=""/>
 </div>
 <div class="bottomtext">
-    <h1 id='word'>Testtest</h1>
+    <h1 class="htext" id='word'>Testtest</h1>
 </div>
 <div class="buttoncontainer">
   <button onclick="changeImage()" class="button">Previous</button>
