@@ -5,8 +5,7 @@
 
 <title>Word Game</title>
 <script>
-  let places =
-  [
+  let places = [
     {
         "place_name": "Farm",
         "url": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.7GaDLvQilSlh1sDE4CBcUgHaEV%26pid%3DApi&f=1",
@@ -110,6 +109,26 @@
             {
                 "word": "Slide",
                 "url": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fkidscreations.com%2Fproduct_images%2Fr%2F269%2Fgreen_14_scoop_slide__66933_zoom.jpg&f=1&nofb=1"
+            },
+            {
+                "word": "Climb",
+                "url": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.8zGxM3x4g0TYdvIRDX8zTAHaE8%26pid%3DApi&f=1&ipt=d33ca60bf13931008c366dec7404ac0f394ad3332b17744168f47431a38e41f9&ipo=images"
+            },
+            {
+                "word": "Swing",
+                "url": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.9fpy76A3ZXtxsRGrkGCXowHaE7%26pid%3DApi&f=1&ipt=fcaaf33fd48b2ab0d75a5111e24c3abc125fa323d449b129522e07ef647cd95a&ipo=images"
+            },
+            {
+                "word": "Swinging",
+                "url": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.m0KqEBUzclErm3_4DpwMpQHaE8%26pid%3DApi&f=1&ipt=2c97e434173231b6eae9198c45cafa4018faff51be91df3c1f50ad041979aa45&ipo=images"
+            },
+            {
+                "word": "Sliding",
+                "url": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.Kp4ucOIQXIc1iRpsHHnXvAHaE7%26pid%3DApi&f=1&ipt=ee52cc9c5e37ccffc5b682d39c1d2f6bce82933459ca017f593797f4d150828e&ipo=images"
+            },
+            {
+                "word": "Spinning",
+                "url": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.CSzVL_9mhQi9QIdnJXNeuQHaE8%26pid%3DApi&f=1&ipt=eaa977819ff7aeb527749f9119b6d7d8c71d02e455c8905bdc13d582557de6f0&ipo=images"
             }
         ]
     },
@@ -154,8 +173,98 @@
                 "url": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.4WIAKv6VWFeKLU1t5inp0QHaEh%26pid%3DApi&f=1&ipt=ecaea0cb1b61b28887db258a3e61409d6bb0b88b35c6851aa5ed8622c8af7a6b&ipo=images"
             }
         ]
+    },
+    {
+        "place_name": "The Kitchen",
+        "url": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.Wbn4l3KKmMIf0mHnul6a8AHaE8%26pid%3DApi&f=1&ipt=1c2773f050318c70c6faa6ef6121328210106f4ee8713553133f0eff4485a2b8&ipo=images",
+        "images": [
+            {
+                "word": "Spoon",
+                "url": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.YEbbrpvlWA3v0iQETTpqZQEYDe%26pid%3DApi&f=1&ipt=6999798052c406f772bfcb476d0e4cbe459a8e7411013bcfb0c48b6e857dbd5e&ipo=images"
+            },
+            {
+                "word": "Knife",
+                "url": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.gYO4mTBC0yiytgex1Lj77AHaE8%26pid%3DApi&f=1&ipt=2623a8d9f1ed8735ba66fe3265ae91f36aff7555cb55c1203008caad9a9cde63&ipo=images"
+            },
+            {
+                "word": "Fork",
+                "url": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.gYO4mTBC0yiytgex1Lj77AHaE8%26pid%3DApi&f=1&ipt=2623a8d9f1ed8735ba66fe3265ae91f36aff7555cb55c1203008caad9a9cde63&ipo=images"
+            },
+            {
+                "word": "Butter Knife",
+                "url": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.mZbsVP56ziDmBSeiHTWf0QHaHa%26pid%3DApi&f=1&ipt=3d21c71c3dd0dc117d4250fca40ef1178514409ce1a2cae8be346f813fcf99a0&ipo=images"
+            },
+            {
+                "word": "Eggs",
+                "url": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.MTEi8-kyqKidqUKs9tCktgHaHa%26pid%3DApi&f=1&ipt=713ea21ce9edb7a0cfe8c679d713f90ebc2a1c1638dfaf44b50463f5ec662490&ipo=images"
+            },
+            {
+                "word": "Fruits",
+                "url": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.K8U9O6ymjlAHetUhUZa8qQHaE6%26pid%3DApi&f=1&ipt=50fbf6ea1cd9f2569a6c576e18ba42b4f57a69a34567b18c6cb875b875fb75cb&ipo=images"
+            },
+            {
+                "word": "Lemons",
+                "url": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.tGHpm-yz421PwAutUKDVnQHaLH%26pid%3DApi&f=1&ipt=6e97ffb8be3183d291e49f187971c508facb783b438b6d544f7b61f9da2f931c&ipo=images"
+            },
+            {
+                "word": "Oranges",
+                "url": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.-9uWx5gs4y2PTrCGxkL6QQHaFj%26pid%3DApi&f=1&ipt=974305457121e3b6f508f41a018d6dd05825d71725899ea53d7206d729c39043&ipo=images"
+            },
+            {
+                "word": "Tomatoes",
+                "url": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.gGRLAXWURe49eBpcN0xO0AHaE7%26pid%3DApi&f=1&ipt=5645900dc08adf3789b07ff5e2943d5f7d83118aaff5120d604a1f14a3775206&ipo=images"
+            },
+            {
+                "word": "Potatoes",
+                "url": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.J2KkkVMpFG9blD6aBIYGngHaM1%26pid%3DApi&f=1&ipt=56b41a87924753fcbad150012fd68a7df6bdd769d642b397e926b90777cd10b0&ipo=images"
+            },
+            {
+                "word": "Cabbage",
+                "url": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.7KD91jESje_cKvNssYyIwgHaHa%26pid%3DApi&f=1&ipt=631f0da9d1c81b6d7c4064352798445a0ef85e163c3cafadab4d233aa11bc926&ipo=images"
+            },
+            {
+                "word": "Corn",
+                "url": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.22ctIbsr29wh0J3hxz9MVAHaE7%26pid%3DApi&f=1&ipt=be425fcd774d7c7ec96ed9a30a3ad513ebce580fc2a54b5274b7b8dfcb83b95f&ipo=images"
+            },
+            {
+                "word": "Salad",
+                "url": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.Gf6qjmlXUTiFpqnjGwFXKgHaKR%26pid%3DApi&f=1&ipt=2c79ac1d647de6182c7057f677b2faba0c05cc7c535030bfde73bc3cf5a91b45&ipo=images"
+            },
+            {
+                "word": "Italian Salad",
+                "url": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.zgWY8peOhyCt4IBLBp7htAHaHa%26pid%3DApi&f=1&ipt=86e4627078925acdde7d3f42e753b38852f9e0b8e1d2aa831a74a3cfec8748b8&ipo=images"
+            },
+            {
+                "word": "Beet Walnut Salad",
+                "url": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.07fZODrV_a2nuV-b778bdQHaLF%26pid%3DApi&f=1&ipt=7bdda500a0b788c52d6396b979ea079c1e60637d750598b38485e8e790627f54&ipo=images"
+            },
+            {
+                "word": "Bowl of Soup",
+                "url": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.zh94ziI1Kc5jDytdFnccrAHaJ4%26pid%3DApi&f=1&ipt=8b96f135e16b1b03dca2d061a7573403d225e9801773a8c0017fbbe242b41185&ipo=images"
+            },
+            {
+                "word": "Grilled Cheese Sandwhich",
+                "url": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.OvQNp-2xpUoN8kDEXZhwOQHaFj%26pid%3DApi&f=1&ipt=2c76f55b0e9eb8e126822734aa889caabf1bee394b817ca96a795be80b1ef5e9&ipo=images"
+            },
+            {
+                "word": "Fried Eggy",
+                "url": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.b6fU8_dlH1BmaqTk7DrnhQHaHa%26pid%3DApi&f=1&ipt=4d9c41a2e44d27628e9845ee44942d5d79e3e01179300df9cd24ee9a9803c3b2&ipo=images"
+            },
+            {
+                "word": "Oat meal",
+                "url": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.08_gIXh_53JLKkmhKfkG1AHaLF%26pid%3DApi&f=1&ipt=48a7b871efcd5bfb1796db40bc9524866ef6b71ced4c3206036d67179497e9e3&ipo=images"
+            },
+            {
+                "word": "Cereal",
+                "url": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.ken_Lp1fYjIyKsvIYINEggHaHa%26pid%3DApi&f=1&ipt=9cead58322b3b011f91a68ffbb728cb2a1bad10a6b513e6970df17403a051d96&ipo=images"
+            },
+            {
+                "word": "Milk",
+                "url": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.SaGX9CiHZgA9PNO_Xk3jEgHaLH%26pid%3DApi&f=1&ipt=ed8872e181943bb35f9423c8f4db74cd93c0f798d2f4324aca87ac4284f35ea2&ipo=images"
+            }
+        ]
     }
-  ];
+];
   let placeIndex = Math.floor(Math.random() * places.length);
   let imageIndex = Math.floor(Math.random() * places[placeIndex].images.length);
 
