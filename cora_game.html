@@ -3,130 +3,183 @@
 <head>
   <meta name=”viewport” content=”width=device-width, initial-scale=1.0″>
 
-
 <title>Word Game</title>
 <script>
-  let images = [
+  let places =
+  [
     {
-      'place_name' : 'Farm',
-      'url' : 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.7GaDLvQilSlh1sDE4CBcUgHaEV%26pid%3DApi&f=1',
-      'images' : [
-          { 'word' : 'cows',
-            'url' :'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftownsquare.media%2Fsite%2F554%2Ffiles%2F2017%2F09%2F9-27-FARM.jpg%3Fw%3D1200%26h%3D0%26zc%3D1%26s%3D0%26a%3Dt%26q%3D89&f=1&nofb=1'
-          },
-          {
-            'word' : 'strawberries',
-            'url' : 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.OoY90XyFb-92rGh__z0KZAHaE8%26pid%3DApi&f=1'
-          },
-          {
-            'word' : 'Bull',
-            'url' : 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.bKdjjR6XyLJjMOODbw3PWgHaFm%26pid%3DApi&f=1'
-          },
-          {
-            'word' : 'Pigs',
-            'url' : 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.bKdjjR6XyLJjMOODbw3PWgHaFm%26pid%3DApi&f=1'
-          },
-          {
-            'word' : 'Barn',
-            'url' : 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.ldyIHUUyIOcrOnn-zb77WAHaEK%26pid%3DApi&f=1'
-          },
-          {
-            'word' : 'Horses',
-            'url' : 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.4zlZGZ2CoY2uDFEnxmXy7AHaE7%26pid%3DApi&f=1'
-          },
-          {
-            'word' : 'Farm house scene',
-            'url' : 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.g70WYcJx-x12Hygb9qtEZAHaEK%26pid%3DApi&f=1'
-          },
-          {
-            'word' : 'Horse riders',
-            'url' : 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.zBZTKWqRtwI0GUsejWRMSgHaD4%26pid%3DApi&f=1'
-          },
-          {
-            'word' : 'Apples',
-            'url' : 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.yJ6v4kmjdJMPaqW1g7c3WQHaEK%26pid%3DApi&f=1'
-          },
-          {
-            'word' : 'Ducks',
-            'url' : 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.rtlc8jcyCSPe5QVDrVJtxQHaE3%26pid%3DApi&f=1'
-          },
-          {
-            'word' : 'Oranges',
-            'url' : 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.8WEUH0X12UCCpUcmRn0jYAHaJ4%26pid%3DApi&f=1'
-          }
-
-      ]
+        "place_name": "Farm",
+        "url": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.7GaDLvQilSlh1sDE4CBcUgHaEV%26pid%3DApi&f=1",
+        "images": [
+            {
+                "word": "cows",
+                "url": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftownsquare.media%2Fsite%2F554%2Ffiles%2F2017%2F09%2F9-27-FARM.jpg%3Fw%3D1200%26h%3D0%26zc%3D1%26s%3D0%26a%3Dt%26q%3D89&f=1&nofb=1"
+            },
+            {
+                "word": "strawberries",
+                "url": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.OoY90XyFb-92rGh__z0KZAHaE8%26pid%3DApi&f=1"
+            },
+            {
+                "word": "Bull",
+                "url": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.bKdjjR6XyLJjMOODbw3PWgHaFm%26pid%3DApi&f=1"
+            },
+            {
+                "word": "Pigs",
+                "url": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages2.minutemediacdn.com%2Fimage%2Fupload%2Fc_fill%2Cg_auto%2Ch_1248%2Cw_2220%2Fv1555280929%2Fshape%2Fmentalfloss%2Fistock-500003996.jpg%3Fitok%3DqA6Rk8Rc&f=1&nofb=1&ipt=d1734d0d754d4d72754fb798c3b9e921c47fea27853d32ac971749a15f3a702b&ipo=images"
+            },
+            {
+                "word": "Barn",
+                "url": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.ldyIHUUyIOcrOnn-zb77WAHaEK%26pid%3DApi&f=1"
+            },
+            {
+                "word": "Horses",
+                "url": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.4zlZGZ2CoY2uDFEnxmXy7AHaE7%26pid%3DApi&f=1"
+            },
+            {
+                "word": "Farm house scene",
+                "url": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.g70WYcJx-x12Hygb9qtEZAHaEK%26pid%3DApi&f=1"
+            },
+            {
+                "word": "Horse riders",
+                "url": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.zBZTKWqRtwI0GUsejWRMSgHaD4%26pid%3DApi&f=1"
+            },
+            {
+                "word": "Apples",
+                "url": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.yJ6v4kmjdJMPaqW1g7c3WQHaEK%26pid%3DApi&f=1"
+            },
+            {
+                "word": "Ducks",
+                "url": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.rtlc8jcyCSPe5QVDrVJtxQHaE3%26pid%3DApi&f=1"
+            },
+            {
+                "word": "Oranges",
+                "url": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.8WEUH0X12UCCpUcmRn0jYAHaJ4%26pid%3DApi&f=1"
+            }
+        ]
     },
     {
-      'place_name' : 'Soccer Field',
-      'url' : 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.communityadvocate.com%2Fwp-content%2Fuploads%2F2020%2F09%2FChauncyFieldsSoccer_09-23-2020-scaled.jpg&f=1&nofb=1',
-      'images' : [
-          { 'word' : 'kick',
-            'url' :'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.DD2Yxdqd7dDyYWSEbsCpRwHaEw%26pid%3DApi&f=1'
-          },
-          {
-            'word' : 'Goal!',
-            'url' : 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.BL3Yu0PXsosThHX0YFbFfgHaFL%26pid%3DApi&f=1'
-          },
-          {
-            'word' : 'Team',
-            'url' : 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.ODDokreGs6NmhNZHIPmwngHaE7%26pid%3DApi&f=1'
-          },
-          {
-            'word' : 'Run',
-            'url' : 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.fMLY_v0fWo6JIUpnPgQGXAHaEA%26pid%3DApi&f=1&ipt=87efdae9b491e2b7e3f7948c45d07aec27a1ea5d440349de064392ccc7c6cbb1&ipo=images'
-          },
-          {
-            'word' : 'Aim',
-            'url' : 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.LrILet3Ctf3Pk1uFYlr-WAHaGG%26pid%3DApi&f=1&ipt=5ec572861dee0271cb388c791f916e05bd5c3f4e1c523a9fe793621263701fc4&ipo=images'
-          },
-          {
-            'word' : 'Hug',
-            'url' : 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.3ivp9hu4UuYKbGr5P8a8LgHaFx%26pid%3DApi&f=1&ipt=83d4f74f6c7c52152e4bd1d72886dd30d53bf9ca61221db39911e2c7a5e68fd0&ipo=images'
-          },
-          {
-            'word' : 'Team',
-            'url' : 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.fWaJlMuEsTo0W2qUb8dzTwHaCv%26pid%3DApi&f=1&ipt=f3068d7fc0925f9c952c5f4e2ddfc720ea3c51f44d982a23eb71e603a542a034&ipo=images'
-          },
-          {
-            'word' : 'Save',
-            'url' : 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.v05X0BcjMNSU-SXM34AlOQHaFk%26pid%3DApi&f=1&ipt=730aba49889640fedcaa4b498b21f2f6ef15c6e97735818bdff0f3fdeaf782ac&ipo=images'
-          },
-          {
-            'word' : 'Throw',
-            'url' : 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP._GkLEr4kXkv-qFvnB9Rc-wHaE8%26pid%3DApi&f=1&ipt=a1fecb03ad54b2b817f528684d70d62d27d39d67e4f46becddbe17ff7fdd3f72&ipo=images'
-          },
-          {
-            'word' : 'Pass',
-            'url' : 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.qtDYHtCnlYTv1-fwlIoTBgHaFc%26pid%3DApi&f=1&ipt=0729cbfa0fba32caee654cb02a87d6229595e5f0cc94d0676ef66c17ec85a8b2&ipo=images'
-          }
-      ]
+        "place_name": "Soccer Field",
+        "url": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.communityadvocate.com%2Fwp-content%2Fuploads%2F2020%2F09%2FChauncyFieldsSoccer_09-23-2020-scaled.jpg&f=1&nofb=1",
+        "images": [
+            {
+                "word": "kick",
+                "url": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.DD2Yxdqd7dDyYWSEbsCpRwHaEw%26pid%3DApi&f=1"
+            },
+            {
+                "word": "Goal!",
+                "url": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.BL3Yu0PXsosThHX0YFbFfgHaFL%26pid%3DApi&f=1"
+            },
+            {
+                "word": "Team",
+                "url": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.ODDokreGs6NmhNZHIPmwngHaE7%26pid%3DApi&f=1"
+            },
+            {
+                "word": "Run",
+                "url": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.fMLY_v0fWo6JIUpnPgQGXAHaEA%26pid%3DApi&f=1&ipt=87efdae9b491e2b7e3f7948c45d07aec27a1ea5d440349de064392ccc7c6cbb1&ipo=images"
+            },
+            {
+                "word": "Aim",
+                "url": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.LrILet3Ctf3Pk1uFYlr-WAHaGG%26pid%3DApi&f=1&ipt=5ec572861dee0271cb388c791f916e05bd5c3f4e1c523a9fe793621263701fc4&ipo=images"
+            },
+            {
+                "word": "Hug",
+                "url": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.3ivp9hu4UuYKbGr5P8a8LgHaFx%26pid%3DApi&f=1&ipt=83d4f74f6c7c52152e4bd1d72886dd30d53bf9ca61221db39911e2c7a5e68fd0&ipo=images"
+            },
+            {
+                "word": "Team",
+                "url": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.fWaJlMuEsTo0W2qUb8dzTwHaCv%26pid%3DApi&f=1&ipt=f3068d7fc0925f9c952c5f4e2ddfc720ea3c51f44d982a23eb71e603a542a034&ipo=images"
+            },
+            {
+                "word": "Save",
+                "url": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.v05X0BcjMNSU-SXM34AlOQHaFk%26pid%3DApi&f=1&ipt=730aba49889640fedcaa4b498b21f2f6ef15c6e97735818bdff0f3fdeaf782ac&ipo=images"
+            },
+            {
+                "word": "Throw",
+                "url": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP._GkLEr4kXkv-qFvnB9Rc-wHaE8%26pid%3DApi&f=1&ipt=a1fecb03ad54b2b817f528684d70d62d27d39d67e4f46becddbe17ff7fdd3f72&ipo=images"
+            },
+            {
+                "word": "Pass",
+                "url": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.qtDYHtCnlYTv1-fwlIoTBgHaFc%26pid%3DApi&f=1&ipt=0729cbfa0fba32caee654cb02a87d6229595e5f0cc94d0676ef66c17ec85a8b2&ipo=images"
+            }
+        ]
     },
     {
-      'place_name' : 'Play Ground',
-      'url' : 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.communityadvocate.com%2Fwp-content%2Fuploads%2F2020%2F09%2FChauncyFieldsSoccer_09-23-2020-scaled.jpg&f=1&nofb=1',
-      'images' : [
-          { 'word' : 'Slide',
-            'url' :'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fkidscreations.com%2Fproduct_images%2Fr%2F269%2Fgreen_14_scoop_slide__66933_zoom.jpg&f=1&nofb=1'
-          }
-      ]
+        "place_name": "Play Ground",
+        "url": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.communityadvocate.com%2Fwp-content%2Fuploads%2F2020%2F09%2FChauncyFieldsSoccer_09-23-2020-scaled.jpg&f=1&nofb=1",
+        "images": [
+            {
+                "word": "Slide",
+                "url": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fkidscreations.com%2Fproduct_images%2Fr%2F269%2Fgreen_14_scoop_slide__66933_zoom.jpg&f=1&nofb=1"
+            }
+        ]
     },
     {
-      'place_name' : 'The Zoo',
-      'url' : 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.r2UNQHqWyOkWRdlWivgLwQHaE8%26pid%3DApi&f=1',
-      'images' : [
-          { 'word' : 'Elephant Eating Tree',
-            'url' :'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.uqXfPfsRxFCXm0FsKXInQwHaFO%26pid%3DApi&f=1'
-          }
-      ]
+        "place_name": "The Zoo",
+        "url": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.r2UNQHqWyOkWRdlWivgLwQHaE8%26pid%3DApi&f=1",
+        "images": [
+            {
+                "word": "Elephant Eating Tree",
+                "url": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.uqXfPfsRxFCXm0FsKXInQwHaFO%26pid%3DApi&f=1"
+            },
+            {
+                "word": "Lion",
+                "url": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.Pdr9cCh5jEChVlBPvQ-SDgHaE8%26pid%3DApi&f=1&ipt=31a0ca235a03c7e27474a7fa73ed1798c52949940a5c0a89c88b993987296c89&ipo=images"
+            },
+            {
+                "word": "Tiger",
+                "url": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.e7LQDuAwnNEZ2C9pqt44OAHaEx%26pid%3DApi&f=1&ipt=8f5de8ac52c903deecd86d05a3e433533e56a52e27fdb2492ca58a9a1984cd91&ipo=images"
+            },
+            {
+                "word": "Baby Elephant",
+                "url": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.wu47paA0gSnr0aZarFT6BgEsDI%26pid%3DApi&f=1&ipt=a6956bc21fed843c16c72406148ceae17754a445877616c93a59b123b00095a9&ipo=images"
+            },
+            {
+                "word": "Bears",
+                "url": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.Fb0a2gzDPofOEiJZRKG0FQHaEL%26pid%3DApi&f=1&ipt=15b684cb3bc98f4d4e189d0e1baa8e95e5573cc74e4532b6550283f3d9fd36b8&ipo=images"
+            },
+            {
+                "word": "Gorilla",
+                "url": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.CNiqYgnXROJswNCv6b7YuQHaEv%26pid%3DApi&f=1&ipt=8a57c4ffa49a4808d4c8c6ab6f77937aa109b1dbdb9456bb684e4c7d26b169f6&ipo=images"
+            },
+            {
+                "word": "Meerkat",
+                "url": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.ZHcB6645wQ_0Gcz36bXvxAHaGV%26pid%3DApi&f=1&ipt=fca81fb80b22a4a2dceeed47dff379d8a4cc63cd84f12391718f8f04c21332d9&ipo=images"
+            },
+            {
+                "word": "Hippo",
+                "url": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.7d_U6zzK3BZQzSsmTai-DgHaE8%26pid%3DApi&f=1&ipt=2730283010eb81ec21e474b994245125a7a8201312ba5f660b18516f2f8cf012&ipo=images"
+            },
+            {
+                "word": "Panda",
+                "url": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.4WIAKv6VWFeKLU1t5inp0QHaEh%26pid%3DApi&f=1&ipt=ecaea0cb1b61b28887db258a3e61409d6bb0b88b35c6851aa5ed8622c8af7a6b&ipo=images"
+            }
+        ]
     }
   ];
+  let placeIndex = Math.floor(Math.random() * places.length);
+  let imageIndex = Math.floor(Math.random() * places[placeIndex].images.length);
+
+  function skipToNextImage() {
+     imageIndex += 1;
+     if(imageIndex == places[placeIndex].images.length) {
+        imageIndex = 0;
+        placeIndex += 1;
+        if(placeIndex == places.length) {
+          placeIndex = 0;
+          imageIndex = 0;
+        }
+     }
+    setMessage(`place = ${placeIndex} of ${places.length} and ${imageIndex} of ${places[placeIndex].images.length}`);
+  }
+
   function changeImage() {
-    let placeIndex = Math.floor(Math.random() * images.length);
-    let placeName = images[placeIndex].place_name;
-    let imageArray= images[placeIndex].images;
-    let imageIndex = Math.floor(Math.random() * imageArray.length);
+    skipToNextImage();
+    let imageArray = places[placeIndex].images;
+    let placeName = places[placeIndex].place_name;
+    console.log(JSON.stringify(imageIndex));
+    console.log(JSON.stringify(imageArray[imageIndex]));
     let url = imageArray[imageIndex].url;
+    console.log("url=" + url);
     let imageText = imageArray[imageIndex].word;
     //document.querySelector('.imgcontainer h1').innerHTML = 'At the ' + placeName;
     document.getElementById("placename").innerHTML = 'At the ' + placeName;
@@ -135,6 +188,11 @@
     document.getElementById("word").innerHTML = imageText;
     //document.getElementById("txt").value = 'hullo';
     //document.querySelector('.imgcontainer h1:nth-of-type(2)').innerHTML = 'TEST'
+  }
+
+  function setMessage(msg) {
+    console.log(msg);
+    //document.getElementById('txt').innerHTML = msg;
   }
 </script>
 <style>
@@ -191,6 +249,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      transition: transform 4000ms ease-in-out;
     }
     .buttoncontainer{
       height: 20%;
